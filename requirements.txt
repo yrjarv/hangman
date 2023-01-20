@@ -1,0 +1,13 @@
+Kravspesifikasjon forside
+· Forsiden skal gi brukeren valget mellom å spille Stein, saks, papir eller Hangman. Når brukeren har valgt spill skal nettsiden gå videre til det valgte spillet.
+· Du kan bruke Stein, saks, papir - innleveringen som du lagde i høst. Hvis du har laget andre spill kan du også linke til disse fra forsiden.
+· Du blir ikke vurdert på Stein, saks, papir-spillet.
+
+Kravspesifikasjon Hangman
+· Programmet velger et tilfeldig ord fra en array av ulike ord.
+· Brukeren gjetter en bokstav om gangen i et tekstfelt. Det er ikke mulig å gjette hele ordet.
+· Hvis brukeren gjetter en riktig bokstav, skal den vises på riktig plass i ordet.
+· Hvis brukeren gjetter feil, skal bokstaven vises i et eget felt og antall feil skal økes med én. Det er mulig å ha maksimalt 10 feil.
+· Brukeren skal fortsette å gjette helt til hele ordet er gjettet riktig eller at brukeren har nådd 10 feil.
+· Når brukeren har nådd 10 feil skal et bilde vises for å illustrere at brukeren har tapt spillet.
+· Det skal være mulig å starte spillet på nytt når spillet er ferdig.
