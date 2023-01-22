@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <title>
+      Play games
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Welcome! Click on one of the games to play!</h1>
+      <div id="games">
+        <div id="hangman" onclick="window.location = './hangman/index.html'">
+          <img src="./files/hangman-thumbnail.png" alt="Hangman">
+          <p>Hangman</p>
+        </div>
+        <div id="rps" onclick="window.location = './rock-paper-scissors/index.html'">
+          <img src="./files/rps-thumbnail.png" alt="Rock, paper, scissors">
+          <p>Rock, paper, scissors</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

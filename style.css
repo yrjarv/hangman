@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(92, 92, 92);
+  font-family: 'Courier New', Courier, monospace
+}
+
+#container {
+  padding: 2% 10%;
+  margin: 3% 20%;
+  background-color: rgba(247, 248, 233, 0.718);
+  align-items: center;
+  justify-items: center;
+}
+
+div > img {
+  max-width: 50%;
+}
+
+#games {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#games > div {
+  cursor: pointer;
+  
+}
+
+p {
+  align-self: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3em;
+}
