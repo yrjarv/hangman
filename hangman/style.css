@@ -4,8 +4,8 @@ body {
 }
 
 #container {
-  padding: 5% 10%;
-  margin: 1.5% 10%;
+  padding: 2.5% 10%;
+  margin: 0 10%;
   background-color: rgba(247, 248, 233, 0.718);
   align-items: center;
   justify-items: center;
