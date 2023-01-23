@@ -85,12 +85,18 @@ function selectRandomWord() {
   return WORDS[Math.floor(Math.random()*WORDS.length)]
 }
 
+/**
+ * Runs when the player is "dead", i.e. has guessed more than 10 unique wrong letters.
+ * Changes the image to show dead hangman, adds border, and removes the keypress eventListener.
+ * Shows the correct word, and allows the user to restart the game by reloading the site.
+ */
 function dead() {
   imgEl.setAttribute('src', '../files/hangman-thumbnail.png');
   imgEl.setAttribute('style', 'border: 2px solid red');
   document.removeEventListener("keypress", keyPressed)
-  errorMessagesEl.innerText = "You have tried too many times. The correct word was '" + word + "'. Click anywhere to try again"
-  document.addEventListener("click", console.log("HEI"))
+  errorMessagesEl.innerText = "You have tried too many times. The correct word was '" + word + 
+    "'. Click anywhere to try again"
+  document.addEventListener("click", function(){this.location.reload()})
   console.log("DEAD") //DEBUG
 }
 
