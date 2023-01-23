@@ -1,0 +1,44 @@
+body {
+  background-color: rgb(92, 92, 92);
+  font-family: 'Courier New', Courier, monospace
+}
+
+#container {
+  padding: 5% 10%;
+  margin: 1.5% 10%;
+  background-color: rgba(247, 248, 233, 0.718);
+  align-items: center;
+  justify-items: center;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 0.25 fr repeat(4, 1fr);
+  grid-template-areas: "t . . r r"
+                       "l l l r r"
+                       "l l l r r"
+                       "l l l r r"
+                       "l l l r r"; 
+  grid-gap: 10%;
+}
+
+#top   {grid-area: t}
+#left  {grid-area: l}
+#right {grid-area: r}
+
+
+img {width: 25vw;}
+
+p {font-size: 2vw}
+
+h1 {font-size: 4vw}
+
+#fields, #wrongLetters {
+  text-transform: uppercase;
+}
+
+button {
+  background-color: rgb(92, 92, 92);
+  border-radius: 10%;
+  width: 200%;
+  font-size: 150%;
+}

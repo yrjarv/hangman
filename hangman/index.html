@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <title>
+      Play Hangman
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+  </head>
+  <body onLoad="load()">
+    <div id=container>
+      <div id="top">
+        <button type="button" onClick="window.location = '../index.html'">← Back</button>
+      </div>
+      <div id=left>
+        <h1>Hangman</h1>
+        <div id=information>
+          <p id=rules>Figure out the word without guessing the wrong letter more than 10 times. Type a letter to begin guessing</p>
+          <p id=errorMessages></p>
+        </div>
+        <div id=gameView>
+          <p id=dashes></p>
+          <p id=wrongLetters></p>
+        </div>
+      </div>
+      <div id=right>
+        <img src="../files/hangman-thumbnail-alive.png">
+      </div>
+    </div>
+  </body>
+</html>
