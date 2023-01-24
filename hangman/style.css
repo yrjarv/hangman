@@ -42,3 +42,7 @@ button {
   width: 200%;
   font-size: 150%;
 }
+
+button:hover {
+  background-color: rgb(52, 52, 52)
+}
