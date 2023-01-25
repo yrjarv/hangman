@@ -34,7 +34,7 @@ function load() {
   rulesEl          = document.getElementById("rules");
   errorMessagesEl  = document.getElementById("errorMessages");
   gameViewEl       = document.getElementById("gameView");
-  underscoresEl;         = document.getElementById("underscores");
+  underscoresEl    = document.getElementById("underscores");
   wrongLettersEl   = document.getElementById("wrongLetters");
   rightEl          = document.getElementById("right");
   imgEl            = document.querySelector("#right > img");
@@ -43,7 +43,7 @@ function load() {
   document.addEventListener("keypress", keyPressed);
   word = selectRandomWord();
   for (let i = 0; i < word.length; i++) {underscores += "_ "};
-  underscoresEl;.innerText = underscores;
+  underscoresEl.innerText = underscores;
 };
 
 /**
@@ -62,7 +62,7 @@ function keyPressed(e) {
         underscores = underscores.split('');
         underscores[i*2] = letter;
         underscores = underscores.join('');
-        underscoresEl;.innerHTML = underscores
+        underscoresEl.innerHTML = underscores
       };
     };
   }
