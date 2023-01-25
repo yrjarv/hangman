@@ -17,8 +17,6 @@ let imgEl
  * Runs when index.html is loaded.
  * Adds an eventlistener for any keypresses, selects a random word, and makes corresponding dashes
  * on the site.
- * @param   {None}
- * @returns {None}
  */
 function load() {
   informationEl = document.getElementById("information");
@@ -39,14 +37,18 @@ function load() {
   console.log(word) //DEBUG
 }
 
+/**
+ * Sets the hangman image to imagename
+ * @param {String} imagename Path to/name of image
+ */
+function setHangmanImage(imagename) {imgEl.setAttribute("src", "../files/"+imagename+".png")}
 
 /**
  * Is called from eventListener created in load(). Decodes the keyCode to a letter, checks if the
  * letter is part of the english alphabet, then checks if the letter is part of the word.
  * Finally checks if more than 10 wrong letters (dead) or correct word (win), and if wrong letter
  * shows the user the amount of wrong letters and what letters they are
- * @param   {*} e Element passed by eventListener
- * @returns {None}
+ * @param {*} e Element passed by eventListener
  */
 function keyPressed(e) {
   errorMessagesEl.innerText = ""
@@ -67,6 +69,7 @@ function keyPressed(e) {
       wrongLettersEl.innerText = wrongLetters.length + " wrong letter(s): "
       for (let i = 0; i < wrongLetters.length; i++) {  //Show wrong letters
         wrongLettersEl.innerText += (wrongLetters[i] + " ")
+        setHangmanImage("hangman-" + wrongLetters.length)
       }
       if (wrongLetters.length >= 10) {dead()} //If 10 different wrong letters have been tried, the player loses
     }
@@ -78,7 +81,6 @@ function keyPressed(e) {
 }
 /**
  * Selects a random word and returns it using the array of the most common words
- * @param   {None}
  * @returns {string} A random word
  */
 function selectRandomWord() {
@@ -91,7 +93,7 @@ function selectRandomWord() {
  * Shows the correct word, and allows the user to restart the game by reloading the site.
  */
 function dead() {
-  imgEl.setAttribute('src', '../files/hangman-thumbnail.png');
+  setHangmanImage("hangman-dead")
   imgEl.setAttribute('style', 'border: 2px solid red');
   document.removeEventListener("keypress", keyPressed);
   errorMessagesEl.innerText = "You have tried too many times. The correct word was '" + word + 
@@ -101,7 +103,7 @@ function dead() {
 }
 
 function win() {
-  imgEl.setAttribute('src', '../files/hangman-happy.png'); //TODO: Make hangman-happy.png
+  setHangmanImage("hangman-alive")
   imgEl.setAttribute('style', 'border: 2px solid green');
   document.removeEventListener("keypress", keyPressed);
   errorMessagesEl.innerText = "You win and saved the hangman! Click to ty again";
