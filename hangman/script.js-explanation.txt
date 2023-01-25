@@ -1,0 +1,34 @@
+Create several variables, some with values and some without
+Create variables for necessary elements, but without values
+
+FUNCTIONS
+setHangmanImage(): Change the image of the hangman
+selectRandomWord(): Select random word from list of words
+
+load(): Run onLoad from body
+	Give values to the element variables
+	Create eventListener waiting for keypress
+	Choose a word
+	Create same amount of underscores as word length
+	Show the underscores on the page
+
+keyPressed(): Run when eventListener from load fires
+	Reset error messages
+	Find letter pressed
+	If letter in word: Change corresponding underline location to letter, show on page
+	Else:
+		If in alphabet and not previously guessed: Add to list of tried letters
+			If 10 or more tried wrong letters: dead
+		Else if already answered: Give error message about already tried letter
+		Else: Not an english letter, give and show error message about invalid letter
+	If no more underscores left: win
+
+dead() and win(): Run when player dies or wins
+	Change hangman picture to dead or alive
+	Change border to red or green
+	Remove earlier eventListener
+	Give "error" message about too many attempts
+	Create new eventListener reloading page upon click
+
+CONST WORD: Array of 1000 common english words
+	
