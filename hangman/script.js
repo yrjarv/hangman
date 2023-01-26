@@ -50,7 +50,8 @@ function load() {
     if (!confirm(
         "Do you consent to use of cookies on this website? Click 'Cancel' to not consent.")
         ) {
-            document.getElementById("stats").disabled = true
+            document.getElementById("showStats").disabled = true
+            document.getElementById("resetStats").disabled = true
             cookieConsent = false;
     }
     else {
@@ -161,6 +162,14 @@ function win() {
 
 function showStats() {
   alert("Wins: " + winCount + "\nDeaths: " + deadCount)
+}
+
+/**
+ * Sets win and dead cookies to 0
+ */
+function resetStats() {
+  document.cookie = "win=0; max-age ="  + 30 * 24 * 60 * 60;
+  document.cookie = "dead=0; max-age =" + 30 * 24 * 60 * 60;
 }
 
 /**
