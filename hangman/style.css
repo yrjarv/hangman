@@ -9,7 +9,7 @@ body {
   background-color: rgba(247, 248, 233, 0.718);
   align-items: center;
   justify-items: center;
-  max-height: 90vw;
+  max-height: 90vh;
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
