@@ -26,8 +26,8 @@ function selectRandomWord() {return WORDS[Math.floor(Math.random()*WORDS.length)
 
 /**
  * Runs when index.html is loaded.
- * Gets cookie consent
- * Adds an eventlistener for any keypresses, selects a random word, and makes corresponding underscores
+ * Gets cookie consent and creates relevant variabled
+ * Adds an eventlistener for any keypresses, selects a random word, and creates underscores
  * on the site.
  */
 function load() {
@@ -40,9 +40,12 @@ function load() {
   rightEl          = document.getElementById("right");
   imgEl            = document.querySelector("#right > img");
 
-  if (!document.cookie.split('; ').find((row) => row.startsWith('consent='))?.split('=')[1] == "true" 
-      || document.cookie == '') {
-    if (!confirm("Do you consent to use of cookies on this website? Click 'Cancel' to not consent.")) {
+  if (
+    !document.cookie.split('; ').find((row) => row.startsWith('consent='))?.split('=')[1] == "true"
+    || document.cookie == '') {
+    if (!confirm(
+        "Do you consent to use of cookies on this website? Click 'Cancel' to not consent.")
+        ) {
       document.getElementById("stats").disabled = true
     }
     else {
@@ -108,6 +111,7 @@ function keyPressed(e) {
  * Runs when the player is "dead", i.e. has guessed more than 10 unique wrong letters.
  * Changes the image to show dead hangman, adds border, and removes the keypress eventListener.
  * Shows the correct word, and allows the user to restart using eventListener that reloads the page
+ * Updates deadCount and corresponding cookie
  */
 function dead() {
   setHangmanImage("hangman-dead");
@@ -125,6 +129,7 @@ function dead() {
  * Runs when the player won the game, i.e. guessed the correct word without losing (see dead())
  * Changes image to show alive (and happy) hangman, adds green border, and removes eventListener
  * Allows the user to restart using eventListener that reloads the page
+ * Updates deadCount and corresponding cookie
  */
 function win() {
   setHangmanImage("hangman-alive");
@@ -136,6 +141,10 @@ function win() {
   winCount ++; document.cookie = "win="+winCount+";"
   if (cookieConsent) {document.cookie="win="+(winCount)+"; max-age =" + 30 * 24 * 60 * 60};
 }
+
+/**
+ * Alerts wins and deaths to user from winCount and deadCount, retrieved from cookies
+ */
 
 function showStats() {
   alert("Wins: " + winCount + "\nDeaths: " + deadCount)
