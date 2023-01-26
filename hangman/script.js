@@ -3,6 +3,12 @@ let underscores  = "";
 let alphabet     = "abcdefghijklmnopqrstuvwxyz";
 let wrongLetters = [];
 
+//Cookie variables
+let cookieConsent
+let winCount
+let deadCount
+
+//Elements
 let informationEl;
 let rulesEl;
 let errorMessagesEl;
@@ -40,25 +46,28 @@ function load() {
   rightEl          = document.getElementById("right");
   imgEl            = document.querySelector("#right > img");
 
-  if (
-    !document.cookie.split('; ').find((row) => row.startsWith('consent='))?.split('=')[1] == "true"
-    || document.cookie == '') {
+  if (document.cookie == ""){
     if (!confirm(
         "Do you consent to use of cookies on this website? Click 'Cancel' to not consent.")
         ) {
-      document.getElementById("stats").disabled = true
+            document.getElementById("stats").disabled = true
+            cookieConsent = false;
     }
     else {
+      cookieConsent = true
+      winCount      = 0;
+      deadCount     = 0;
       document.cookie = "consent=true; max-age =" + 30 * 24 * 60 * 60;
-      let cookieConsent = true
-      document.cookie = "win=0; max-age ="  + 30 * 24 * 60 * 60;
-      document.cookie = "dead=0; max-age =" + 30 * 24 * 60 * 60;
+      document.cookie = "win=0; max-age ="        + 30 * 24 * 60 * 60;
+      document.cookie = "dead=0; max-age ="       + 30 * 24 * 60 * 60;
     }
   }
   else {
-    let cookieConsent = true;
-    winCount  = document.cookie.split('; ').find((row) => row.startsWith("win=" ))?.split('=')[1];
-    deadCount = document.cookie.split('; ').find((row) => row.startsWith("dead="))?.split('=')[1];
+    cookieConsent = true;
+    winCount  = document.cookie.split('; ').find((row) => row.startsWith("win=" ))
+                    ?.split('=')[1];
+    deadCount = document.cookie.split('; ').find((row) => row.startsWith("dead="))
+                    ?.split('=')[1];
   }
   
   document.addEventListener("keypress", keyPressed);
@@ -121,8 +130,10 @@ function dead() {
     "'. Click to try again";
   document.addEventListener("click", function(){location.reload()}); //Reload is in new function to
     //prevent eventListener from firing upon creation
-  deadCount ++; document.cookie = "dead="+deadCount+";"
-  if (cookieConsent) {document.cookie="dead="+(deadCount)+"; max-age =" + 30 * 24 * 60 * 60}
+  if (cookieConsent) {
+    deadCount ++;
+    document.cookie="dead="+(deadCount)+"; max-age =" + 30 * 24 * 60 * 60
+  }
 };
 
 /**
@@ -138,8 +149,10 @@ function win() {
   errorMessagesEl.innerText = "You won and saved the hangman! Click to try again";
   document.addEventListener("click", function(){location.reload()}); //Reload is in new function to
     //prevent eventListener from firing upon creation
-  winCount ++; document.cookie = "win="+winCount+";"
-  if (cookieConsent) {document.cookie="win="+(winCount)+"; max-age =" + 30 * 24 * 60 * 60};
+  if (cookieConsent) {
+    winCount ++;
+    document.cookie = "win="+(winCount)+"; max-age =" + 30 * 24 * 60 * 60;
+  };
 }
 
 /**
