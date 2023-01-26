@@ -170,6 +170,8 @@ function showStats() {
 function resetStats() {
   document.cookie = "win=0; max-age ="  + 30 * 24 * 60 * 60;
   document.cookie = "dead=0; max-age =" + 30 * 24 * 60 * 60;
+  winCount  = 0;
+  deadCount = 0;
 }
 
 /**
