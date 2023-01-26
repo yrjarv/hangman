@@ -110,7 +110,7 @@ function win() {
   setHangmanImage("hangman-alive");
   imgEl.setAttribute('style', 'border: 2px solid green');
   document.removeEventListener("keypress", keyPressed);
-  errorMessagesEl.innerText = "You win and saved the hangman! Click to try again";
+  errorMessagesEl.innerText = "You won and saved the hangman! Click to try again";
   document.addEventListener("click", function(){location.reload()}); //Reload is in new function to
     //prevent eventListener from firing upon creation
 }
