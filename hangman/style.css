@@ -13,8 +13,8 @@ body {
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 0.25 fr repeat(4, 1fr);
-  grid-template-areas: "t . . r r"
+  grid-template-rows:   repeat(5, 1fr);
+  grid-template-areas: "t t t t t"
                        "l l l r r"
                        "l l l r r"
                        "l l l r r"
@@ -27,11 +27,11 @@ body {
 #right {grid-area: r}
 
 
-img {width: 25vw;}
+img {width: 17vw;}
 
-p {font-size: 2vw}
+p   {font-size: 2vw}
 
-h1 {font-size: 4vw}
+h1  {font-size: 3vw}
 
 #fields, #wrongLetters {
   text-transform: uppercase;
@@ -40,8 +40,10 @@ h1 {font-size: 4vw}
 button {
   background-color: rgb(92, 92, 92);
   border-radius: 10%;
-  width: 15vw;
-  font-size: 2vw;
+  width: 10vw;
+  font-size: 1.5vw;
+  margin: 1vw;
+  align-self: left;
 }
 
 button:hover {
